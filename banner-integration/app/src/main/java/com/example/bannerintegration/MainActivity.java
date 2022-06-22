@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
+import com.sourcepoint.cmplibrary.model.MessageLanguage;
 import com.yieldlove.adIntegration.AdFormats.YieldloveBannerAd;
 import com.yieldlove.adIntegration.AdFormats.YieldloveBannerAdListener;
 import com.yieldlove.adIntegration.AdFormats.YieldloveBannerAdView;
 import com.yieldlove.adIntegration.Yieldlove;
+import com.yieldlove.adIntegration.YieldloveConsent;
 import com.yieldlove.adIntegration.exceptions.YieldloveException;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Set here your APPLICATION_NAME
         Yieldlove.setApplicationName("appDfpTestMonitoring2");
+
+        YieldloveConsent consent = new YieldloveConsent(
+                this,
+                R.id.main);
+
+        consent.collect(MessageLanguage.ENGLISH);
 
         try {
             YieldloveBannerAd ad = new YieldloveBannerAd(this);
