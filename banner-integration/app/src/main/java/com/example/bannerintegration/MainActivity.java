@@ -3,6 +3,7 @@ package com.example.bannerintegration;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
@@ -16,6 +17,8 @@ import com.yieldlove.adIntegration.exceptions.YieldloveException;
 
 public class MainActivity extends AppCompatActivity {
 
+    YieldloveConsent consent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewGroup adContainer = findViewById(R.id.AdContainer);
 
+
         // Set here your APPLICATION_NAME
         Yieldlove.setApplicationName("appDfpTestMonitoring2");
 
-        YieldloveConsent consent = new YieldloveConsent(
+        this.consent = new YieldloveConsent(
                 this,
                 R.id.main);
 
-        consent.collect(MessageLanguage.ENGLISH);
+        this.consent.collect(MessageLanguage.ENGLISH);
 
         try {
             YieldloveBannerAd ad = new YieldloveBannerAd(this);
@@ -79,5 +83,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void btnPrivacyClick(View view) {
+        this.consent.showPrivacyManager(MessageLanguage.ENGLISH);
     }
 }
