@@ -5,17 +5,58 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.ads.admanager.AdManagerAdRequest;
+import com.sourcepoint.cmplibrary.model.MessageLanguage;
+import com.yieldlove.adIntegration.AdFormats.YieldloveInterstitialAd;
+import com.yieldlove.adIntegration.AdFormats.YieldloveInterstitialAdListener;
+import com.yieldlove.adIntegration.AdFormats.YieldloveInterstitialAdView;
+import com.yieldlove.adIntegration.Yieldlove;
+import com.yieldlove.adIntegration.YieldloveConsent;
+import com.yieldlove.adIntegration.exceptions.ContextException;
+import com.yieldlove.adIntegration.exceptions.YieldloveException;
+
 public class MainActivity extends AppCompatActivity {
+
+    YieldloveConsent consent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Yieldlove.setApplicationName("appDfpTestMonitoring2");
+        this.consent = new YieldloveConsent(
+                this,
+                R.id.main);
+        this.consent.collect(MessageLanguage.ENGLISH);
     }
 
-    public void btnInterstitialClick(View view) {
+    public void btnInterstitialClick(View view) throws ContextException {
+        try {
+            YieldloveInterstitialAd ad = new YieldloveInterstitialAd(this);
+            ad.load("int", new YieldloveInterstitialAdListener(){
+
+                @Override
+                public AdManagerAdRequest.Builder onAdRequestBuild() {
+                    return null;
+                }
+
+                @Override
+                public void onAdLoaded(YieldloveInterstitialAdView interstitial) {
+                    interstitial.show();
+                }
+
+                @Override
+                public void onAdFailedToLoad(YieldloveInterstitialAdView interstitial, YieldloveException e) {
+                    e.printStackTrace();
+                }
+            });
+        }catch (YieldloveException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnPrivacyClick(View view) {
+        this.consent.showPrivacyManager(MessageLanguage.ENGLISH);
     }
 }
