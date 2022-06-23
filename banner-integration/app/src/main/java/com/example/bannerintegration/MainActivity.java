@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewGroup adContainer = findViewById(R.id.AdContainer);
 
-
-        // Set here your APPLICATION_NAME
-        Yieldlove.setApplicationName("appDfpTestMonitoring2");
+        Yieldlove.setApplicationName("appDfpTest");
 
         this.consent = new YieldloveConsent(
                 this,
@@ -39,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             YieldloveBannerAd ad = new YieldloveBannerAd(this);
 
-            // Set here PUBLISHER_CALL_STRING / Slot name
-            ad.load("b2", new YieldloveBannerAdListener() {
+            ad.load("banner", new YieldloveBannerAdListener() {
 
                 @Override
                 public AdManagerAdRequest.Builder onAdRequestBuild() {
@@ -81,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (YieldloveException e) {
             e.printStackTrace();
         }
-
 
     }
 
