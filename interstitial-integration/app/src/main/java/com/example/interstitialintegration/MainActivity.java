@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.sourcepoint.cmplibrary.model.MessageLanguage;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onAdFailedToLoad(YieldloveInterstitialAdView interstitial, YieldloveException e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Ad load failed", Toast.LENGTH_LONG).show();
                 }
             });
         }catch (YieldloveException e) {
