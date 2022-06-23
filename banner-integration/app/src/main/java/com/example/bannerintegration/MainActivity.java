@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.sourcepoint.cmplibrary.model.MessageLanguage;
@@ -51,27 +52,27 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onAdFailedToLoad(YieldloveBannerAdView yieldloveBannerAdView, YieldloveException e) {
-
+                    Toast.makeText(getApplicationContext(), "Ad load failed", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
                 public void onAdOpened(YieldloveBannerAdView yieldloveBannerAdView) {
-
+                    Toast.makeText(getApplicationContext(), "Ad opened", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onAdClosed(YieldloveBannerAdView yieldloveBannerAdView) {
-
+                    Toast.makeText(getApplicationContext(), "Ad closed", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onAdClicked(YieldloveBannerAdView yieldloveBannerAdView) {
-
+                    Toast.makeText(getApplicationContext(), "Ad clicked", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onAdImpression(YieldloveBannerAdView yieldloveBannerAdView) {
-
+                    Toast.makeText(getApplicationContext(), "Ad impression", Toast.LENGTH_SHORT).show();
                 }
             });
 
