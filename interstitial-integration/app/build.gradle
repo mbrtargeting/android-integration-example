@@ -35,6 +35,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.8.0'
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.14.1'
     implementation 'com.yieldlove.adIntegration:cmp:4.1.0' // use CMP lib just if you will use our CMP solution
 }
