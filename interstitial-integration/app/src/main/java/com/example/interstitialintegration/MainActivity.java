@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Yieldlove.setApplicationName("appDfpTest");
+        Yieldlove.setApplicationName("appDfpTest"); // <-- put here your application name
         this.consent = new YieldloveConsent(
                 this,
                 R.id.main);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     public void btnInterstitialClick(View view) throws ContextException {
         try {
             YieldloveInterstitialAd ad = new YieldloveInterstitialAd(this);
-            ad.load("interstitial", new YieldloveInterstitialAdListener(){
+            ad.load("interstitial", new YieldloveInterstitialAdListener(){  // <-- put here your adslot name
 
                 @Override
                 public AdManagerAdRequest.Builder onAdRequestBuild() {
