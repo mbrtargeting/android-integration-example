@@ -27,18 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewGroup adContainer = findViewById(R.id.AdContainer);
 
-        Yieldlove.setApplicationName("appDfpTest");
+        Yieldlove.setApplicationName("mps_motorradonline");
+        Yieldlove.developerModeEnabled = true;
+        Yieldlove.debug = true;
 
         this.consent = new YieldloveConsent(
                 this,
                 R.id.main);
 
-        this.consent.collect(MessageLanguage.ENGLISH);
+        this.consent.collect(MessageLanguage.JAPANESE);
 
         try {
             YieldloveBannerAd ad = new YieldloveBannerAd(this);
 
-            ad.load("banner", new YieldloveBannerAdListener() {
+            ad.load("b1", new YieldloveBannerAdListener() {
 
                 @Override
                 public AdManagerAdRequest.Builder onAdRequestBuild() {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onAdLoaded(YieldloveBannerAdView banner) {
+                    adContainer.removeAllViews();
                     adContainer.addView(banner.getAdView());
                 }
 
@@ -83,6 +86,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPrivacyClick(View view) {
-        this.consent.showPrivacyManager(MessageLanguage.ENGLISH);
+        this.consent.showPrivacyManager(MessageLanguage.JAPANESE);
     }
 }

@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    namespace "com.example.bannerintegration"
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.bannerintegration"
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -22,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -32,9 +33,23 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.19.0'
+    implementation 'com.yieldlove.adIntegration:cmp:4.6.0' // use CMP lib just if you will use our CMP solution
+
+    // implementation 'com.sourcepoint.cmplibrary:cmplibrary:7.1.0'
+    //implementation 'androidx.privacysandbox.ads:ads-adservices-java:1.0.0-alpha01'
+
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.16.1'
-    implementation 'com.yieldlove.adIntegration:cmp:4.4.0' // use CMP lib just if you will use our CMP solution
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    /*implementation files('libs/yieldlove-release.aar')
+    implementation files('libs/cmp-release.aar')
+    implementation files('libs/androidPromise-release.aar')
+    implementation 'com.google.android.gms:play-services-ads:22.3.0'
+    implementation 'com.google.code.gson:gson:[2.8.9,2.9)'
+    implementation 'com.squareup.okhttp3:okhttp:[4.9,5.0)'
+    implementation 'org.prebid:prebid-mobile-sdk:2.0.3'
+    implementation 'com.criteo.publisher:criteo-publisher-sdk:[4.8.1,5)'*/
+    //implementation 'com.yieldlove.adIntegration:cmp:4.4.0' // use CMP lib just if you will use our CMP solution
 }

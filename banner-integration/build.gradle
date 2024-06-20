@@ -2,17 +2,17 @@
 buildscript {
     repositories {
         maven { url "https://maven.google.com" }
-        jcenter()
+        mavenCentral()
         google()
         maven { url 'https://slabs-yieldlove-ad-integration.s3.eu-central-1.amazonaws.com/android' }
     }
 }
 
 plugins {
-    id 'com.android.application' version '7.2.0' apply false
-    id 'com.android.library' version '7.2.0' apply false
+    id 'com.android.application' version '8.1.1' apply false
+    id 'com.android.library' version '8.1.1' apply false
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
