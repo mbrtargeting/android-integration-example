@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace "com.example.bannerintegration"
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.bannerintegration"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
@@ -33,8 +33,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.19.0'
-    implementation 'com.yieldlove.adIntegration:cmp:4.6.0' // use CMP lib just if you will use our CMP solution
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.20.0'
+    implementation 'com.yieldlove.adIntegration:cmp:4.7.0' // use CMP lib just if you will use our CMP solution
 
     // implementation 'com.sourcepoint.cmplibrary:cmplibrary:7.1.0'
     //implementation 'androidx.privacysandbox.ads:ads-adservices-java:1.0.0-alpha01'
