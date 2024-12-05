@@ -28,28 +28,26 @@ android {
     }
 }
 
-dependencies {
 
+
+dependencies {
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.24.0'
+    implementation 'com.yieldlove.adIntegration:confiant:0.1.0'
+    implementation 'com.yieldlove.adIntegration:gravite:0.1.0'
+}
+
+
+
+dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.20.0'
-    implementation 'com.yieldlove.adIntegration:cmp:4.7.0' // use CMP lib just if you will use our CMP solution
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.24.0'
+    implementation 'com.yieldlove.adIntegration:cmp:4.9.0' // use CMP lib just if you will use our CMP solution
 
-    // implementation 'com.sourcepoint.cmplibrary:cmplibrary:7.1.0'
-    //implementation 'androidx.privacysandbox.ads:ads-adservices-java:1.0.0-alpha01'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    /*implementation files('libs/yieldlove-release.aar')
-    implementation files('libs/cmp-release.aar')
-    implementation files('libs/androidPromise-release.aar')
-    implementation 'com.google.android.gms:play-services-ads:22.3.0'
-    implementation 'com.google.code.gson:gson:[2.8.9,2.9)'
-    implementation 'com.squareup.okhttp3:okhttp:[4.9,5.0)'
-    implementation 'org.prebid:prebid-mobile-sdk:2.0.3'
-    implementation 'com.criteo.publisher:criteo-publisher-sdk:[4.8.1,5)'*/
-    //implementation 'com.yieldlove.adIntegration:cmp:4.4.0' // use CMP lib just if you will use our CMP solution
 }
