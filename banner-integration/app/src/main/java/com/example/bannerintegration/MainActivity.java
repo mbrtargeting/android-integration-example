@@ -3,6 +3,7 @@ package com.example.bannerintegration;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         Yieldlove.debug = true;
 
         // enable Confiant
-//        ConfiantLoader.getInstance().enableTestMode();
-//        ConfiantLoader.getInstance().initialize("", true, new IAdMonitorCallback() {
+//        ConfiantLoader.getInstance().enableTestMode();      // Enable Test Mode, This function blocks all banners and interstitials.
+//        ConfiantLoader.getInstance().initialize("", true, new IAdMonitorCallback() { // Please inquire to get the accountId and set up the bundle id in Confiant.
 //            @Override
 //            public void onInitialized(boolean success) {
 //
@@ -49,22 +50,27 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         // enable Gravite
-//        GraviteLoader.getInstance().enableDebugMode();
-//        GraviteLoader.getInstance().enableTestMode(null, null, true);
-//        GraviteLoader.getInstance().initialize(getApplication(), new IInitializationCallback() {
-//            @Override
-//            public void onInitialized(boolean success) {
-//
-//            }
-//        });
+        GraviteLoader.getInstance().enableDebugMode(); // Enable debug mode
+        // GraviteLoader.getInstance().enableTestMode(null, null, true); // Enable test mode, Please inquire to get accountId and set up the bundle id in Gravite.
+
+        //GraviteLoader.getInstance().enableDirectGraviteCall(); // Enable direct Gravite call. This will bypass Stroeer SDK and call Gravite directly. Please discuss with a Stroeer dealer to use this.
+        GraviteLoader.getInstance().setCacheSize(3);           // Set the cache size to 3. This is only for direct Gravite call.
+
+        // Initialize Gravite
+        GraviteLoader.getInstance().initialize(getApplication(), new IInitializationCallback() {
+            @Override
+            public void onInitialized(boolean success) {
+
+            }
+        });
 
         // Create a map to define custom targeting parameters
         Map<String, List<String>> map = new HashMap<>();
-// Add user-specific data to the targeting map
+        // Add user-specific data to the targeting map
         map.put("userAge", List.of("25")); // Example: User's age
         map.put("userInterest", List.of("sports", "technology", "music")); // Example: User's interests
         map.put("userLocation", List.of("New York")); // Example: User's location
-// Apply the custom targeting globally for Gravite
+        // Apply the custom targeting globally for Gravite
         Yieldlove.setCustomTargeting(map);
 
         this.consent = new YieldloveConsent(
@@ -87,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onAdLoaded(YieldloveBannerAdView banner) {
                     adContainer.removeAllViews();
                     adContainer.addView(banner.getAdView());
+                    Log.i("Sample application", banner.getAdSource().toString());
                 }
 
                 @Override
@@ -135,5 +142,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         GraviteLoader.getInstance().onPause(this);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

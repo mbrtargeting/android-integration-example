@@ -26,7 +26,18 @@ android {
         sourceCompatibility "17"
         targetCompatibility "17"
     }
+
+    lint{
+        baseline = file("lint-baseline.xml")
+    }
 }
+
+dependencies {
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.25.0'
+    implementation 'com.yieldlove.adIntegration:confiant:1.0.0'
+    implementation 'com.yieldlove.adIntegration:gravite:1.0.0'
+}
+
 
 dependencies {
 
@@ -36,6 +47,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.24.0'
     implementation 'com.yieldlove.adIntegration:cmp:4.9.0' // use CMP lib just if you will use our CMP solution
 }

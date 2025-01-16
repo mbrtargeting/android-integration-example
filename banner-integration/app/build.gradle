@@ -26,14 +26,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+
 }
 
 
 
 dependencies {
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.24.0'
-    implementation 'com.yieldlove.adIntegration:confiant:0.1.0'
-    implementation 'com.yieldlove.adIntegration:gravite:0.1.0'
+    implementation 'com.yieldlove.adIntegration:yieldlove:6.25.0'
+    implementation 'com.yieldlove.adIntegration:confiant:1.0.0'
+    implementation 'com.yieldlove.adIntegration:gravite:1.0.0'
 }
 
 
@@ -42,7 +47,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.24.0'
     implementation 'com.yieldlove.adIntegration:cmp:4.9.0' // use CMP lib just if you will use our CMP solution
 
 
