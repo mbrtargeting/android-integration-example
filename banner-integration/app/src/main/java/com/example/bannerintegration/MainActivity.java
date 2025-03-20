@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewGroup adContainer = findViewById(R.id.AdContainer);
 
-        Yieldlove.setApplicationName("appDfpTest");
+        Yieldlove.setApplicationName(getApplicationContext(),"appDfpTestID5");
         Yieldlove.developerModeEnabled = true;
         Yieldlove.debug = true;
 
@@ -50,19 +50,19 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         // enable Gravite
-        GraviteLoader.getInstance().enableDebugMode(); // Enable debug mode
-        // GraviteLoader.getInstance().enableTestMode(null, null, true); // Enable test mode, Please inquire to get accountId and set up the bundle id in Gravite.
-
-        //GraviteLoader.getInstance().enableDirectGraviteCall(); // Enable direct Gravite call. This will bypass Stroeer SDK and call Gravite directly. Please discuss with a Stroeer dealer to use this.
-        GraviteLoader.getInstance().setCacheSize(3);           // Set the cache size to 3. This is only for direct Gravite call.
-
-        // Initialize Gravite
-        GraviteLoader.getInstance().initialize(getApplication(), new IInitializationCallback() {
-            @Override
-            public void onInitialized(boolean success) {
-
-            }
-        });
+//        GraviteLoader.getInstance().enableDebugMode(); // Enable debug mode
+//        // GraviteLoader.getInstance().enableTestMode(null, null, true); // Enable test mode, Please inquire to get accountId and set up the bundle id in Gravite.
+//
+//        //GraviteLoader.getInstance().enableDirectGraviteCall(); // Enable direct Gravite call. This will bypass Stroeer SDK and call Gravite directly. Please discuss with a Stroeer dealer to use this.
+//        GraviteLoader.getInstance().setCacheSize(3);           // Set the cache size to 3. This is only for direct Gravite call.
+//
+//        // Initialize Gravite
+//        GraviteLoader.getInstance().initialize(getApplication(), new IInitializationCallback() {
+//            @Override
+//            public void onInitialized(boolean success) {
+//
+//            }
+//        });
 
         // Create a map to define custom targeting parameters
         Map<String, List<String>> map = new HashMap<>();
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             YieldloveBannerAd ad = new YieldloveBannerAd(this);
 
-            ad.load("banner", new YieldloveBannerAdListener() {
+            ad.load("b1", new YieldloveBannerAdListener() {
 
                 @Override
                 public AdManagerAdRequest.Builder onAdRequestBuild() {

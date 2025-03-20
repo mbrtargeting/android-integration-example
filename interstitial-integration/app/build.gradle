@@ -33,9 +33,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.yieldlove.adIntegration:yieldlove:6.25.0'
-    implementation 'com.yieldlove.adIntegration:confiant:1.0.0'
-    implementation 'com.yieldlove.adIntegration:gravite:1.0.0'
+    implementation 'com.yieldlove.adIntegration:yieldlove:7.0.0'
+    implementation 'com.yieldlove.adIntegration:cmp:7.0.0'
+    implementation 'com.yieldlove.adIntegration:confiant:7.0.0'
+    implementation 'com.yieldlove.adIntegration:gravite:7.0.0'
 }
 
 

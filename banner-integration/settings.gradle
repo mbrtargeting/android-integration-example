@@ -12,6 +12,9 @@ dependencyResolutionManagement {
         mavenCentral()
         maven{
             url 'https://slabs-yieldlove-ad-integration.s3.eu-central-1.amazonaws.com/android'
+            content {
+                includeGroup("com.yieldlove.adIntegration")
+            }
         }
 
         maven{
